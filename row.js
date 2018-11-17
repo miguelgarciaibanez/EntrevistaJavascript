@@ -1,4 +1,4 @@
-import './brick'
+var brick = require('./brick');
 "use sctrict";
 class Row {
     constructor(numberOfBricks) {
@@ -28,3 +28,5 @@ class Row {
         return row
     }
 }
+
+module.exports =Row;

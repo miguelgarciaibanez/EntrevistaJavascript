@@ -1,5 +1,6 @@
 "use strict";
-import "./row"
+var Row = require("./row");
+
 class Wall{
     constructor(numberOfRows, numberOfBricks){
         this.numberOfRows = numberOfRows;
@@ -25,3 +26,6 @@ class Wall{
         return wall;
     }
 }
+
+
+module.exports= Wall;

@@ -18,6 +18,8 @@ class brick {
     }
 }
 
+module.exports = brick;
+
 /*
 var justAGuy = new Person();
 justAGuy.name = 'martin'; // The setter will be used automatically here.

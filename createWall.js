@@ -1,4 +1,5 @@
-import "./wall";
+var Wall  = require("./wall");
+
 "use strict";
 
 
@@ -23,8 +24,8 @@ function buildAWall(numberOfRows, numberOfBricks){
     if (!resCheck[1]){
         console.log(resCheck[0]);
     } else {
-        var mywall = new Wall(numberOfRows, numberOfBricks);
-        wall = mywall.buildWall(numberOfRows,numberOfBricks);
+        var myWall = new Wall(numberOfRows, numberOfBricks);
+        wall = myWall.buildWall(numberOfRows,numberOfBricks);
         console.log(wall);
     }
 }
