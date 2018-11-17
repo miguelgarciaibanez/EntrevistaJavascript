@@ -1,66 +1,6 @@
-/**
- * Created by miguelgarcia on 17/11/18.
- */
-
+import "./wall";
 "use strict";
 
-function writeBrick(full){
-    if (full) {
-        return '■■';
-    } else {
-        return '■'
-    }
-}
-
-function writeMorter(){
-    return '|'
-}
-
-
-function writeRow(complete, numberOfBricks){
-    var count = 0,
-        row ='';
-
-    if (complete){
-        while (count < numberOfBricks-1){
-            row += writeBrick(true) + writeMorter()
-            count++;
-        }
-        row += writeBrick(true);
-    } else {
-        while (count < numberOfBricks) {
-            if (count == 0) {
-                row += writeBrick(false) + writeMorter()
-            } else {
-                row += writeBrick(true) + writeMorter()
-            }
-            count++
-        }
-        row += writeBrick(false);
-    }
-    return row;
-}
-
-function writeWall(numberOfRows, numberOfBricks){
-    var count = numberOfRows,
-        row = "",
-        wall = "";
-
-    while (count>0){
-        if (count == numberOfRows){
-            row = writeRow(true,numberOfBricks);
-        } else {
-            if (((numberOfRows - count) % 2) == 0) {
-                row = writeRow(true, numberOfBricks) + '\\n'
-            } else {
-                row = writeRow(false, numberOfBricks) + '\\n'
-            }
-        }
-        wall = row + wall;
-        count--;
-    }
-    return wall;
-}
 
 
 function checkParameters(numberOfRows, numberOfBricks) {
@@ -83,7 +23,8 @@ function buildAWall(numberOfRows, numberOfBricks){
     if (!resCheck[1]){
         console.log(resCheck[0]);
     } else {
-        wall = writeWall(numberOfRows,numberOfBricks);
+        var mywall = new Wall(numberOfRows, numberOfBricks);
+        wall = mywall.buildWall(numberOfRows,numberOfBricks);
         console.log(wall);
     }
 }
