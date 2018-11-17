@@ -23,20 +23,20 @@ function writeRow(complete, numberOfBricks){
 
     if (complete){
         while (count < numberOfBricks-1){
-            row += this.writeBrick(true) + this.writeMorter()
+            row += writeBrick(true) + writeMorter()
             count++;
         }
-        row += this.writeBrick(true);
+        row += writeBrick(true);
     } else {
         while (count < numberOfBricks) {
             if (count == 0) {
-                row += this.writeBrick(false) + this.writeMorter()
+                row += writeBrick(false) + writeMorter()
             } else {
-                row += this.writeBrick(true) + this.writeMorter()
+                row += writeBrick(true) + writeMorter()
             }
             count++
         }
-        row += this.writeBrick(false);
+        row += writeBrick(false);
     }
     return row;
 }
@@ -48,12 +48,12 @@ function writeWall(numberOfRows, numberOfBricks){
 
     while (count>0){
         if (count == numberOfRows){
-            row = this.writeRow(true,numberOfBricks);
+            row = writeRow(true,numberOfBricks);
         } else {
             if (((numberOfRows - count) % 2) == 0) {
-                row = this.writeRow(true, numberOfBricks) + '\\n'
+                row = writeRow(true, numberOfBricks) + '\\n'
             } else {
-                row = this.writeRow(false, numberOfBricks) + '\\n'
+                row = writeRow(false, numberOfBricks) + '\\n'
             }
         }
         wall = row + wall;
@@ -77,7 +77,7 @@ function checkParameters(numberOfRows, numberOfBricks) {
 }
 
 function buildAWall(numberOfRows, numberOfBricks){
-    var resCheck = this.checkParameters(numberOfRows,numberOfBricks),
+    var resCheck = checkParameters(numberOfRows,numberOfBricks),
         wall = "";
 
     if (!resCheck[1]){
